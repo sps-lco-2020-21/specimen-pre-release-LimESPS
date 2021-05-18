@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pre_Release", "Pre_Release\Pre_Release.csproj", "{D427E8A0-D5BB-4F68-A105-F36EB8828A48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{54387D2E-3D1A-4079-BE78-0F3577D48DAA}"
+	ProjectSection(SolutionItems) = preProject
+		Pre_Release\A Level Specimen Paper 1 C# Skeleton Program.cs = Pre_Release\A Level Specimen Paper 1 C# Skeleton Program.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The_Game", "The_Game\The_Game.csproj", "{5968A21A-8845-42EF-8261-5AB6E54521EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D427E8A0-D5BB-4F68-A105-F36EB8828A48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D427E8A0-D5BB-4F68-A105-F36EB8828A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D427E8A0-D5BB-4F68-A105-F36EB8828A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D427E8A0-D5BB-4F68-A105-F36EB8828A48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5968A21A-8845-42EF-8261-5AB6E54521EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5968A21A-8845-42EF-8261-5AB6E54521EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5968A21A-8845-42EF-8261-5AB6E54521EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5968A21A-8845-42EF-8261-5AB6E54521EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57661C65-DD00-48FC-8949-105DBF18EB15}
+	EndGlobalSection
+EndGlobal
