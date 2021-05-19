@@ -22,7 +22,7 @@ namespace CSPreALevelSkeleton
     { 
       private Character Player = new Character();
       private Grid Cavern = new Grid();
-      private Enemy Monster = new Enemy();     
+      private SleepyEnemy Monster = new SleepyEnemy();     
       private Item Flask = new Item();
       private Trap Trap1 = new Trap();
       private Trap Trap2 = new Trap();
@@ -53,6 +53,8 @@ namespace CSPreALevelSkeleton
             DisplayMoveOptions();
             MoveDirection = GetMove();
             ValidMove = CheckValidMove(MoveDirection);
+                        if (!ValidMove)
+                            Console.WriteLine("That is not a valid move, please try again");
           } while (!ValidMove);
           if (MoveDirection != 'M') 
           { 
@@ -191,13 +193,16 @@ namespace CSPreALevelSkeleton
                             ValidMove = false;
                         break;
                     case 2:
-                        if (pos.NoOfCellsEast - 1 < 0)
+                        if (pos.NoOfCellsEast + 1 >= 7)
                             ValidMove = false;
                         break;
                     
-                    default:
-                        if (pos.NoOfCellsEast + 1 >=  7)
+                    case 3:
+                        if (pos.NoOfCellsEast -1 <  0)
                             ValidMove = false;
+                        break;
+                    default:
+                        Console.WriteLine("invalid input");
                         break;
                         
                 }
@@ -434,7 +439,29 @@ namespace CSPreALevelSkeleton
         } 
       } 
     } 
-    
+    class SleepyEnemy: Enemy
+    {
+            bool Awake;
+            int MovesTillSleep;
+            public void ChangeSleepStatus()
+            {
+                MovesTillSleep = 4;
+            }
+            public void MakeMove()
+            {
+                MovesTillSleep -= 1;
+                if (MovesTillSleep == 0)
+                    Sleep();
+
+            }
+            public void Sleep()
+            {
+                ChangeSleepStatus();
+                Awake = false;
+            }
+                
+
+    }
    
 
     public static void DisplayMenu()
