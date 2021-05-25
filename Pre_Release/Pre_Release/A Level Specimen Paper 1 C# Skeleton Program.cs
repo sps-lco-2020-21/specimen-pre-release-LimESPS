@@ -131,8 +131,10 @@ namespace CSPreALevelSkeleton
         Console.WriteLine("Enter S to move SOUTH");
         Console.WriteLine("Enter E to move EAST");
         Console.WriteLine("Enter W to move WEST");
+        Console.WriteLine("Enter A to shoot arrow");
         Console.WriteLine("Enter M to return to the Main Menu");
         Console.WriteLine();
+        
       } 
       
       public char GetMove()
@@ -182,6 +184,8 @@ namespace CSPreALevelSkeleton
                     caseSwitch = 2;
                 else if (Direction == 'W')
                     caseSwitch = 3;
+                else if (Direction == 'A')
+                    caseSwitch = 4;
                 switch (caseSwitch)
                 {
                     case 0:
@@ -200,6 +204,10 @@ namespace CSPreALevelSkeleton
                     case 3:
                         if (pos.NoOfCellsEast -1 <  0)
                             ValidMove = false;
+                        break;
+                    case 4:
+                        if (!Player.GetHasArrow())
+                            ValidMove = false;//if he does valid move is already true, no need to add true if statement
                         break;
                     default:
                         Console.WriteLine("invalid input");
@@ -314,6 +322,7 @@ namespace CSPreALevelSkeleton
       public void PlaceItem(CellReference Position, char Item) //WHERE ERROR IS STATED
       { 
         CavernState[Position.NoOfCellsSouth, Position.NoOfCellsEast] = Item;
+        
       }
 
       public Boolean IsCellEmpty(CellReference Position)
@@ -328,7 +337,7 @@ namespace CSPreALevelSkeleton
     class Enemy: Item
     { 
       private Boolean Awake;
-
+     
       public virtual void MakeMove(CellReference PlayerPosition)      
       { 
         if (NoOfCellsSouth < PlayerPosition.NoOfCellsSouth)
@@ -371,7 +380,9 @@ namespace CSPreALevelSkeleton
     }
  
     class Character : Item //here are charater position
-    { 
+    {
+      bool HasArrow = true;
+            
       public void MakeMove(char Direction)
       { 
         switch (Direction)
@@ -385,7 +396,34 @@ namespace CSPreALevelSkeleton
           case 'E' : NoOfCellsEast = NoOfCellsEast + 1;
                      break; 
         } 
-      } 
+      }
+
+  
+      public bool GetHasArrow()
+      {
+           return HasArrow;
+      }
+      public char GetArrowDiretion()
+      {
+           char to_return;
+
+                do
+                {
+                    Console.WriteLine("Where would you like to shoot an arrow? (N,S,E,W)");
+                    to_return = char.Parse(Console.ReadLine());
+                    
+                }
+                while (!CheckValidMove(to_return));
+                HasArrow = false;
+                return to_return;
+      }
+      public bool CheckValidMove(char entry)
+            {
+                if (entry == 'N' || entry == 'E' || entry == 'S' || entry == 'W')
+                    return true;
+                else
+                    return false;
+            }
     } 
 
     class Trap :  Item
